@@ -1,0 +1,38 @@
+{% extends "Appregistros/padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+<h1 class="mb-5">EDITANDO USUARIO: {{ nombreusuario }} </h1>
+{% endblock %}
+
+{% block contenido%}
+
+<h3>{{ mensaje }}</h3>
+
+<form action="{% url 'editarperfil' %}" method="POST"> {% csrf_token %}
+
+    <table>
+    
+        {{ form.as_table }}
+    
+    </table>
+    
+    <input type="submit" value="Guardar Cambios">
+    
+    
+</form>
+
+{% if blogs %}
+<ul>
+    {% for b in blogs %}
+    {{ b.titulo }} - {{ b.subtitulo }} - {{ b.id }}
+        <a class="btn btn-danger" href="{% url 'eliminarblog' b.id %}">Eliminar </a>
+        <a class="btn btn-primary" href="{% url 'editarblog' b.id %}"> Editar blog {{ b.titulo }} </a>
+</ul>
+    {% endfor %}
+
+{% else %}
+<h3> No hay blogs </h3>
+{% endif %}
+{% endblock %}

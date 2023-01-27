@@ -1,0 +1,22 @@
+{% extends 'Appregistros/padre.html' %}
+
+{% load static %}
+
+{% block titulo %}
+<h1 class="mb-5">Blogs </h1>
+{% endblock %}
+{% block subtitulo %}
+<h3>{{ blog }} </h3>
+{% endblock %}
+{% block contenido %}
+
+<H4> Blog de: {{blog.autor }} 
+</H4>
+<h2> {{ blog.titulo }} </h2>
+<h4> {{blog.subtitulo }} </h4>
+<h6> {{ blog.cuerpo }}</h6>
+<img src="{{ blog.imagen.url }}">
+
+
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "Appregistros/padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+<h1 class="mb-5">resultados de la busqueda de blogs</h1>
+{% endblock %}
+
+{% block contenido %}
+
+{% if blogs %}
+
+<h2>LISTADO DE BLOGS ENCONTRADOS CON EL TERMINO {{ blog }}</h2>
+{% for blg in blogs %}
+
+<h3>{{ blg.titulo }} - {{ blg.subtitulo }} - {{ blg.autor }}</h3>
+<a class="btn btn-primary" href="{% url 'verblog' blg.id %}"> Ver mas </a>
+{% endfor %}
+
+{% else %}
+
+<h2>NO SE ENCONTRARON BLOGS CON ESE TERMINO </h2>
+
+{% endif %}
+
+
+
+{% endblock %}

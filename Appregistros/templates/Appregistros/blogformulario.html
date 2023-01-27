@@ -1,0 +1,26 @@
+{% extends 'Appregistros/padre.html' %}
+
+{% load static %}
+
+{% block titulo %}
+<h1 class="mb-5">Creando blog </h1>
+{% endblock %}
+
+{% block subtitulo %}
+<h3>  {{ mensaje }} </h3>
+
+<form action="{% url 'blogformulario' %}" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+
+    <table>
+
+        {{ form.as_table }}
+    
+    
+    </table>
+
+    <input type="submit" value="Cargar blog">
+
+</form>
+
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'Appregistros/padre.html' %}
+
+{% load static %}
+
+{% block titulo %}
+<h1 class="mb-5">Mensajeria </h1>
+{% endblock %}
+{% block subtitulo %}
+<h3>{{ blog }} </h3>
+{% endblock %}
+{% block contenido %}
+
+<ul>
+    {% for mensaje in mensajes %}
+    <h3> {{ mensaje.autor }} - {{ mensaje.asunto }}</h3>
+    <h6> {{ mensaje.fecha }} </h6>
+    <p> {{ mensaje.cuerpo }}</p>
+
+    {% endfor %}
+</ul>
+
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "Appregistros/padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+<h1 class="mb-5">EDITANDO BLOG: {{ blog }} </h1>
+{% endblock %}
+
+{% block contenido%}
+
+<h3>{{ mensaje }}</h3>
+
+<form action="{% url 'editarblog' blog.id %}" method="POST"> {% csrf_token %}
+
+    <table>
+    
+        {{ forms.as_table }}
+    
+    </table>
+    
+    <input type="submit" value="Guardar Cambios">
+    
+    
+    </form>
+
+{% endblock %}
